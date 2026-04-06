@@ -24,7 +24,7 @@ func _ready() -> void:
 	# 初始化屏幕边界
 	await get_tree().process_frame  # 等一帧确保视口尺寸就绪
 	screen_bounds = get_viewport_rect()
-	screen_bounds.position.x += 40
+	screen_bounds.position.x += 40	
 	screen_bounds.end.x -= 40
 	screen_bounds.position.y += 20
 	screen_bounds.end.y = screen_bounds.position.y + 80

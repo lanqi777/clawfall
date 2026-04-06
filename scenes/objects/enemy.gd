@@ -8,7 +8,7 @@ var danger_bullet = preload("res://scenes/objects/bullet_danger.tscn")
 var player: Node2D
 
 # 射击模式：0=瞄准, 1=扇形, 2=螺旋
-var shoot_pattern: int = 0
+@export var shoot_pattern: int = 0
 var spiral_angle: float = 0.0
 var pattern_timer: float = 0.0
 var shoot_count: int = 0

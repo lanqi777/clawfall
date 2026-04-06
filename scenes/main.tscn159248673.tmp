@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dy5i6oaxlast6"]
+
+[ext_resource type="PackedScene" uid="uid://b2svaty50d5hl" path="res://scenes/player/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://c2kws53war37" path="res://scenes/environment/environment_manager.tscn" id="2_env"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_ui.tscn" id="3_ui"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_over_screen.tscn" id="6_gameover"]
+[ext_resource type="Script" uid="uid://dl4jau2i5vyyv" path="res://scenes/ui/screen_shake.gd" id="7_shake"]
+[ext_resource type="Script" uid="uid://bobrn5kinnvid" path="res://scenes/managers/spawner.gd" id="8_spawner"]
+
+[node name="Main" type="Node2D" unique_id=2053137679]
+
+[node name="MainCamera" type="Camera2D" parent="." unique_id=1547582393]
+position = Vector2(540, 360)
+script = ExtResource("7_shake")
+
+[node name="EnvironmentManager" parent="." unique_id=1873825837 instance=ExtResource("2_env")]
+
+[node name="Player" parent="." unique_id=820480248 instance=ExtResource("1_player")]
+position = Vector2(548, 1)
+
+[node name="GameUI" parent="." unique_id=175630310 instance=ExtResource("3_ui")]
+
+[node name="GameOverScreen" parent="." unique_id=680936545 instance=ExtResource("6_gameover")]
+
+[node name="Spawner" type="Node" parent="." unique_id=1950265040]
+script = ExtResource("8_spawner")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=573502770]

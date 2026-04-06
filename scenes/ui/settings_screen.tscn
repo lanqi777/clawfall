@@ -1,0 +1,524 @@
+[gd_scene format=3 uid="uid://x2emdbt8l5h6"]
+
+[ext_resource type="Script" uid="uid://wyvbgbbg8rpv" path="res://scenes/ui/settings_screen.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.1, 0.1, 0.15, 0.95)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="SettingsScreen" type="Control" unique_id=733720731]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="." unique_id=108210190]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.08, 1)
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1937004457]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -350.0
+offset_right = 400.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1554293703]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1575877335]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=28661987]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "⚙️ 设置"
+horizontal_alignment = 1
+
+[node name="TabBar" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1512662340]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="GraphicsBtn" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabBar" unique_id=1770052596]
+custom_minimum_size = Vector2(150, 35)
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "🖥️ 画面"
+
+[node name="AudioBtn" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabBar" unique_id=933486859]
+custom_minimum_size = Vector2(150, 35)
+layout_mode = 2
+toggle_mode = true
+text = "🔊 声音"
+
+[node name="ControlsBtn" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabBar" unique_id=1199013524]
+custom_minimum_size = Vector2(150, 35)
+layout_mode = 2
+toggle_mode = true
+text = "🎮 操作"
+
+[node name="AccessibilityBtn" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabBar" unique_id=785278431]
+custom_minimum_size = Vector2(150, 35)
+layout_mode = 2
+toggle_mode = true
+text = "♿ 辅助"
+
+[node name="OtherBtn" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabBar" unique_id=639475801]
+custom_minimum_size = Vector2(150, 35)
+layout_mode = 2
+toggle_mode = true
+text = "🌐 其他"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer" unique_id=50218849]
+layout_mode = 2
+
+[node name="ContentContainer" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=1244220630]
+custom_minimum_size = Vector2(0, 450)
+layout_mode = 2
+
+[node name="GraphicsPage" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer" unique_id=2070446545]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage" unique_id=589649285]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="ResRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox" unique_id=1493449962]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/ResRow" unique_id=1118241209]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "分辨率："
+
+[node name="ResolutionOption" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/ResRow" unique_id=893983727]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ModeRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox" unique_id=337638166]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/ModeRow" unique_id=759982252]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "窗口模式："
+
+[node name="WindowModeOption" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/ModeRow" unique_id=185634509]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BrightRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox" unique_id=1443132080]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/BrightRow" unique_id=1592906802]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "亮度："
+
+[node name="BrightnessSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/BrightRow" unique_id=904971672]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 1.5
+step = 0.05
+value = 1.0
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/BrightRow" unique_id=942934648]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "100%"
+
+[node name="ContrastRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox" unique_id=613385046]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/ContrastRow" unique_id=1498510827]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "对比度："
+
+[node name="ContrastSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/ContrastRow" unique_id=515088896]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 1.5
+step = 0.05
+value = 1.0
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/ContrastRow" unique_id=823784609]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "100%"
+
+[node name="GammaRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox" unique_id=289022185]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/GammaRow" unique_id=8801985]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "伽马："
+
+[node name="GammaSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/GammaRow" unique_id=1798453924]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 1.5
+step = 0.05
+value = 1.0
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/GammaRow" unique_id=128205981]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "100%"
+
+[node name="SatRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox" unique_id=180793090]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/SatRow" unique_id=1951962454]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "饱和度："
+
+[node name="SaturationSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/SatRow" unique_id=132288080]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/SatRow" unique_id=2140459819]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "100%"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox" unique_id=1739298014]
+layout_mode = 2
+
+[node name="FPSRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox" unique_id=1768503374]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/FPSRow" unique_id=1118460766]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "显示帧率："
+
+[node name="FPSCheck" type="CheckBox" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/FPSRow" unique_id=855697029]
+layout_mode = 2
+
+[node name="PerfRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox" unique_id=1985511293]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/PerfRow" unique_id=929139009]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "性能监控："
+
+[node name="PerfCheck" type="CheckBox" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/PerfRow" unique_id=523583190]
+layout_mode = 2
+
+[node name="AudioPage" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer" unique_id=1586081313]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AudioPage" unique_id=1301365791]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="MasterRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AudioPage/VBox" unique_id=1197701729]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AudioPage/VBox/MasterRow" unique_id=869495580]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "主音量："
+
+[node name="MasterSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AudioPage/VBox/MasterRow" unique_id=771048694]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AudioPage/VBox/MasterRow" unique_id=1616072862]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "100%"
+
+[node name="BGMRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AudioPage/VBox" unique_id=73935801]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AudioPage/VBox/BGMRow" unique_id=1122004307]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "背景音乐："
+
+[node name="BGMSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AudioPage/VBox/BGMRow" unique_id=217455565]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AudioPage/VBox/BGMRow" unique_id=567339064]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "80%"
+
+[node name="SFXRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AudioPage/VBox" unique_id=123865628]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AudioPage/VBox/SFXRow" unique_id=10521389]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "音效："
+
+[node name="SFXSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AudioPage/VBox/SFXRow" unique_id=826445000]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AudioPage/VBox/SFXRow" unique_id=194763537]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "100%"
+
+[node name="ControlsPage" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer" unique_id=488298657]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage" unique_id=1065162740]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+
+[node name="Hint" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox" unique_id=2111875511]
+layout_mode = 2
+text = "点击按键按钮后按下新键进行绑定"
+autowrap_mode = 2
+
+[node name="MoveLeftRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox" unique_id=587881527]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox/MoveLeftRow" unique_id=963130040]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "向左移动："
+
+[node name="Move_leftKey1" type="Button" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox/MoveLeftRow" unique_id=1921137294]
+custom_minimum_size = Vector2(80, 35)
+layout_mode = 2
+text = "A"
+
+[node name="Move_leftKey2" type="Button" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox/MoveLeftRow" unique_id=140284929]
+custom_minimum_size = Vector2(80, 35)
+layout_mode = 2
+text = "←"
+
+[node name="MoveRightRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox" unique_id=1800974787]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox/MoveRightRow" unique_id=347040540]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "向右移动："
+
+[node name="Move_rightKey1" type="Button" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox/MoveRightRow" unique_id=1278860859]
+custom_minimum_size = Vector2(80, 35)
+layout_mode = 2
+text = "D"
+
+[node name="Move_rightKey2" type="Button" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox/MoveRightRow" unique_id=946148810]
+custom_minimum_size = Vector2(80, 35)
+layout_mode = 2
+text = "→"
+
+[node name="GrabRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox" unique_id=748213670]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox/GrabRow" unique_id=2128842771]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "抓取/发射："
+
+[node name="GrabKey1" type="Button" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox/GrabRow" unique_id=1648715040]
+custom_minimum_size = Vector2(80, 35)
+layout_mode = 2
+text = "Space"
+
+[node name="GrabKey2" type="Button" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox/GrabRow" unique_id=1578567193]
+custom_minimum_size = Vector2(80, 35)
+layout_mode = 2
+text = "Enter"
+
+[node name="PauseRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox" unique_id=1635442890]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox/PauseRow" unique_id=1222493842]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "暂停："
+
+[node name="PauseKey1" type="Button" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox/PauseRow" unique_id=2091830663]
+custom_minimum_size = Vector2(80, 35)
+layout_mode = 2
+text = "Esc"
+
+[node name="PauseKey2" type="Button" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox/PauseRow" unique_id=909088544]
+custom_minimum_size = Vector2(80, 35)
+layout_mode = 2
+text = "P"
+
+[node name="WaitingLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/ControlsPage/VBox" unique_id=1463614604]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
+text = "请按下新的按键..."
+
+[node name="AccessibilityPage" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer" unique_id=458224112]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AccessibilityPage" unique_id=676111231]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+
+[node name="ColorRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AccessibilityPage/VBox" unique_id=46197616]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AccessibilityPage/VBox/ColorRow" unique_id=1640474695]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "色盲模式："
+
+[node name="ColorblindOption" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AccessibilityPage/VBox/ColorRow" unique_id=703837156]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AccessibilityPage/VBox" unique_id=1028371193]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AccessibilityPage/VBox/TextRow" unique_id=263762157]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "文字大小："
+
+[node name="TextSizeOption" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AccessibilityPage/VBox/TextRow" unique_id=636208621]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UIScaleRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AccessibilityPage/VBox" unique_id=1836615475]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AccessibilityPage/VBox/UIScaleRow" unique_id=959262156]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "界面缩放："
+
+[node name="UIScaleSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AccessibilityPage/VBox/UIScaleRow" unique_id=797151638]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.75
+max_value = 1.5
+step = 0.05
+value = 1.0
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/AccessibilityPage/VBox/UIScaleRow" unique_id=1711900762]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "100%"
+
+[node name="OtherPage" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer" unique_id=1769718328]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/OtherPage" unique_id=1104385099]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+
+[node name="LangRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/OtherPage/VBox" unique_id=1111222370]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/OtherPage/VBox/LangRow" unique_id=808534421]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "语言："
+
+[node name="LanguageOption" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/OtherPage/VBox/LangRow" unique_id=1957913665]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer" unique_id=1268819202]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=177430007]
+layout_mode = 2
+alignment = 2
+
+[node name="BackButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=555947733]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+text = "← 返回"
+
+[node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=123112792]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="ApplyButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=195944280]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+text = "✓ 应用"
