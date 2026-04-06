@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://x2emdbt8l5h6"]
 
 [ext_resource type="Script" uid="uid://wyvbgbbg8rpv" path="res://scenes/ui/settings_screen.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/effects/post_process.tscn" id="2_post"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 bg_color = Color(0.1, 0.1, 0.15, 0.95)
@@ -223,6 +224,18 @@ text = "100%"
 
 [node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox" unique_id=1739298014]
 layout_mode = 2
+
+[node name="VSyncRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox" unique_id=168918031]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/VSyncRow" unique_id=653671356]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "垂直同步："
+
+[node name="VSyncOption" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox/VSyncRow" unique_id=1395340110]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="FPSRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ContentContainer/GraphicsPage/VBox" unique_id=1768503374]
 layout_mode = 2
@@ -522,3 +535,5 @@ layout_mode = 2
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 text = "✓ 应用"
+
+[node name="PostProcess" parent="." unique_id=1120498736 instance=ExtResource("2_post")]

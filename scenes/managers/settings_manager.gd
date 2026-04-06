@@ -10,6 +10,7 @@ var brightness: float = 1.0  # 0.5 - 1.5
 var contrast: float = 1.0    # 0.5 - 1.5
 var gamma: float = 1.0       # 0.5 - 1.5
 var saturation: float = 1.0  # 0.0 - 2.0
+var vsync_mode: int = 1      # 0=禁用, 1=启用, 2=自适应
 var show_fps: bool = false
 var show_perf_monitor: bool = false
 
@@ -72,6 +73,7 @@ func load_settings() -> void:
 	saturation = data.get("saturation", saturation)
 	show_fps = data.get("show_fps", show_fps)
 	show_perf_monitor = data.get("show_perf_monitor", show_perf_monitor)
+	vsync_mode = data.get("vsync_mode", vsync_mode)
 	
 	# 声音
 	master_volume = data.get("master_volume", master_volume)
@@ -101,6 +103,7 @@ func save_settings() -> void:
 		"saturation": saturation,
 		"show_fps": show_fps,
 		"show_perf_monitor": show_perf_monitor,
+		"vsync_mode": vsync_mode,
 		# 声音
 		"master_volume": master_volume,
 		"bgm_volume": bgm_volume,
@@ -124,28 +127,43 @@ func save_settings() -> void:
 func apply_all_settings() -> void:
 	apply_window_mode()
 	apply_resolution()
+	apply_vsync()
 	apply_audio_settings()
 	apply_ui_scale()
+	# 后处理效果由 PostProcess 节点自行监听设置变化
+
+func apply_vsync() -> void:
+	match vsync_mode:
+		0:  # 禁用
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		1:  # 启用
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+		2:  # 自适应
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
 
 func apply_window_mode() -> void:
 	if not _window:
-		return
+		_window = get_tree().root
 	
 	match window_mode:
 		0:  # 窗口
 			_window.mode = Window.MODE_WINDOWED
+			_window.borderless = false
 		1:  # 全屏
 			_window.mode = Window.MODE_FULLSCREEN
-		2:  # 无边框
-			_window.mode = Window.MODE_EXCLUSIVE_FULLSCREEN
+			_window.borderless = false
+		2:  # 无边框全屏
+			_window.mode = Window.MODE_FULLSCREEN
 			_window.borderless = true
 
 func apply_resolution() -> void:
 	if window_mode != 0:  # 仅窗口模式可调整分辨率
 		return
-	if _window:
-		_window.size = resolution
-		_window.move_to_center()
+	if not _window:
+		_window = get_tree().root
+	
+	_window.size = resolution
+	_window.move_to_center()
 
 func apply_audio_settings() -> void:
 	# 音频总线设置
@@ -207,6 +225,12 @@ func set_show_perf_monitor(value: bool) -> void:
 	show_perf_monitor = value
 	save_settings()
 	emit_signal("settings_changed", "show_perf_monitor", value)
+
+func set_vsync_mode(value: int) -> void:
+	vsync_mode = value
+	apply_vsync()
+	save_settings()
+	emit_signal("settings_changed", "vsync_mode", value)
 
 func set_master_volume(value: float) -> void:
 	master_volume = clamp(value, 0.0, 1.0)
@@ -279,7 +303,12 @@ func get_key_name(key: int) -> String:
 		return OS.get_keycode_string(key)
 
 func get_resolution_options() -> Array:
-	return [
+	# 获取当前显示器支持的分辨率
+	var screen_id = DisplayServer.get_primary_screen()
+	var modes = []
+	
+	# 添加常用分辨率
+	var common_resolutions = [
 		Vector2i(1280, 720),
 		Vector2i(1366, 768),
 		Vector2i(1600, 900),
@@ -287,6 +316,30 @@ func get_resolution_options() -> Array:
 		Vector2i(2560, 1440),
 		Vector2i(3840, 2160)
 	]
+	
+	# 尝试获取显示器支持的模式
+	for i in range(DisplayServer.get_screen_count()):
+		var screen_size = DisplayServer.screen_get_size(i)
+		if screen_size.x > 0 and screen_size.y > 0:
+			# 添加当前屏幕分辨率
+			if not modes.has(screen_size):
+				modes.append(screen_size)
+	
+	# 添加常用分辨率（如果小于当前屏幕）
+	var max_size = DisplayServer.screen_get_size(screen_id)
+	for res in common_resolutions:
+		if res.x <= max_size.x and res.y <= max_size.y:
+			if not modes.has(res):
+				modes.append(res)
+	
+	# 按宽度排序
+	modes.sort_custom(func(a, b): return a.x < b.x)
+	
+	# 如果没有获取到任何分辨率，返回默认列表
+	if modes.is_empty():
+		return common_resolutions
+	
+	return modes
 
 func get_resolution_index() -> int:
 	var options = get_resolution_options()

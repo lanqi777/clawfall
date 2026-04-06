@@ -44,6 +44,14 @@ func _init_options() -> void:
 		mode_option.add_item("全屏")
 		mode_option.add_item("无边框全屏")
 	
+	# VSync 选项
+	var vsync_option = graphics_page.get_node_or_null("VSyncOption")
+	if vsync_option:
+		vsync_option.clear()
+		vsync_option.add_item("禁用")
+		vsync_option.add_item("启用")
+		vsync_option.add_item("自适应")
+	
 	# 色盲模式选项
 	var colorblind_option = accessibility_page.get_node_or_null("ColorblindOption")
 	if colorblind_option:
@@ -159,6 +167,10 @@ func _load_current_settings() -> void:
 	if perf_check:
 		perf_check.button_pressed = sm.show_perf_monitor
 	
+	var vsync_option = graphics_page.get_node_or_null("VSyncOption")
+	if vsync_option:
+		vsync_option.selected = sm.vsync_mode
+	
 	# ===== 声音设置 =====
 	var master_slider = audio_page.get_node_or_null("MasterSlider")
 	if master_slider:
@@ -245,6 +257,10 @@ func _on_apply_pressed() -> void:
 	var perf_check = graphics_page.get_node_or_null("PerfCheck")
 	if perf_check:
 		sm.set_show_perf_monitor(perf_check.button_pressed)
+	
+	var vsync_option = graphics_page.get_node_or_null("VSyncOption")
+	if vsync_option:
+		sm.set_vsync_mode(vsync_option.selected)
 	
 	# ===== 声音设置 =====
 	var master_slider = audio_page.get_node_or_null("MasterSlider")
