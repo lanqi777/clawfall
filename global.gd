@@ -72,6 +72,10 @@ func _process(delta: float) -> void:
 		current_wave += 1
 		wave_interval = max(wave_interval - 1.0, 10.0)
 		print("【系统】第 %d 波来袭！" % current_wave)
+		# 通知生成器波次变化
+		var spawner = get_tree().current_scene.get_node_or_null("Spawner")
+		if spawner and spawner.has_method("on_wave_changed"):
+			spawner.on_wave_changed()
 
 	# 更新能力持续时间
 	var expired: Array = []

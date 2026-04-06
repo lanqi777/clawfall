@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 [autoload]
 
 Global="*uid://p1ew5w0o0jiv"
+SettingsManager="*uid://xuliffgjacpj"
 
 [layer_names]
 
