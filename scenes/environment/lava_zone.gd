@@ -1,1 +1,1 @@
-extends Node
+extends Area2D

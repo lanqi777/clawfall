@@ -1,11 +1,8 @@
-﻿[gd_scene load_steps=7 format=3]
+[gd_scene format=3 uid="uid://b2svaty50d5hl"]
 
-[ext_resource type="res://scenes/player/Claw.tscn" path=" id="1_8afob"]
-"$3
-[ext_resource type="res://scenes/player/player.gd" path=" id="1_dovo2"]
-"$3
-[ext_resource type="res://assets/image/play.png" path=" id="2_gmlin"]
-"$3
+[ext_resource type="PackedScene" uid="uid://8mv3o8ig3edt" path="res://scenes/player/Claw.tscn" id="1_8afob"]
+[ext_resource type="Script" uid="uid://cvbr754cby5db" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://ca58mc1opkh32" path="res://assets/image/play.png" id="2_gmlin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
 size = Vector2(160, 200)

@@ -1,7 +1,7 @@
-﻿[gd_scene format=3]
+[gd_scene format=3 uid="uid://8mv3o8ig3edt"]
 
-[ext_resource type="res://assets/image/claw.png" path=" id="1_epo06"]"$3
-[ext_resource type="res://scenes/player/claw.gd" path=" id="1_lvdfc"]"$3
+[ext_resource type="Texture2D" uid="uid://cmhigiuhh22l2" path="res://assets/image/claw.png" id="1_epo06"]
+[ext_resource type="Script" uid="uid://ohr2axtabo5d" path="res://scenes/player/claw.gd" id="1_lvdfc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u8ms8"]
 radius = 85.0

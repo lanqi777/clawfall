@@ -1,7 +1,7 @@
-﻿[gd_scene format=3]
+[gd_scene format=3 uid="uid://bkkqx04oiadgf"]
 
-[ext_resource type="res://scenes/objects/mineral.gd" path=" id="1_rreug"]"$3
-[ext_resource type="res://assets/image/stone.png" path=" id="1_xqhl2"]"$3
+[ext_resource type="Script" uid="uid://cknik1x28y4c7" path="res://scenes/objects/mineral.gd" id="1_rreug"]
+[ext_resource type="Texture2D" uid="uid://cwt2ofw83ekif" path="res://assets/image/stone.png" id="1_xqhl2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqhl2"]
 radius = 100.0

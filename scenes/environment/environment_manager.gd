@@ -36,8 +36,7 @@ func apply_environment(env_type: Global.EnvType) -> void:
 		Global.EnvType.LAVA:
 			print("【环境】熔岩矿洞：底部极其危险！")
 			var lava = lava_scene.instantiate()
-			get_tree().current_scene.add_child.call_deferred(lava)
-			# 熔岩位置在底部中央
+			add_child.call_deferred(lava)
 			await get_tree().process_frame
 			lava.global_position = Vector2(get_viewport().size.x / 2.0, get_viewport().size.y - 50)
 

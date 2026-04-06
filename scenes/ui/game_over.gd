@@ -42,4 +42,4 @@ func _on_restart_pressed() -> void:
 func _on_menu_pressed() -> void:
 	get_tree().paused = false
 	Global.game_state = Global.GameState.MENU
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")

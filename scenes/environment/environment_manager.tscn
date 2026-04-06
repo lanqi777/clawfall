@@ -1,6 +1,6 @@
-﻿[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://c2kws53war37"]
 
-[ext_resource type="res://scenes/environment/environment_manager.gd" path=" id="1_36thj"]"$3
+[ext_resource type="Script" uid="uid://bdaklc6ixel7y" path="res://scenes/environment/environment_manager.gd" id="1_36thj"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fixe3"]
 particle_flag_disable_z = true
