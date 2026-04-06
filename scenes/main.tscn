@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/environment/environment_manager.tscn" id="2_env"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_ui.tscn" id="3_ui"]
+[ext_resource type="PackedScene" path="res://scenes/objects/mineral.tscn" id="4_mineral"]
+[ext_resource type="PackedScene" path="res://scenes/objects/enemy.tscn" id="5_enemy"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_over_screen.tscn" id="6_gameover"]
+[ext_resource type="Script" path="res://scenes/ui/screen_shake.gd" id="7_shake"]
+
+[node name="Main" type="Node2D" unique_id=2053137679]
+
+[node name="MainCamera" type="Camera2D" parent="."]
+position = Vector2(540, 360)
+current = true
+script = ExtResource("7_shake")
+
+[node name="EnvironmentManager" parent="." unique_id=1873825837 instance=ExtResource("2_env")]
+
+[node name="Player" parent="." unique_id=820480248 instance=ExtResource("1_player")]
+position = Vector2(548, 1)
+
+[node name="GameUI" parent="." unique_id=175630310 instance=ExtResource("3_ui")]
+
+[node name="GameOverScreen" parent="." instance=ExtResource("6_gameover")]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=573502770]
+
+[node name="Mineral_1" parent="Node2D" unique_id=1726764157 instance=ExtResource("4_mineral")]
+position = Vector2(946, 526)
+
+[node name="Mineral_2" parent="Node2D" unique_id=236388151 instance=ExtResource("4_mineral")]
+position = Vector2(591, 326)
+
+[node name="Mineral_3" parent="Node2D" unique_id=633227185 instance=ExtResource("4_mineral")]
+position = Vector2(284, 509)
+
+[node name="Enemy" parent="Node2D" unique_id=1094202428 instance=ExtResource("5_enemy")]
+position = Vector2(91, 343)
+
+[node name="Enemy2" parent="Node2D" unique_id=425636127 instance=ExtResource("5_enemy")]
+position = Vector2(732, 518)

@@ -1,0 +1,18 @@
+﻿[gd_scene format=3]
+
+[ext_resource type="res://scenes/objects/mineral.gd" path=" id="1_rreug"]"$3
+[ext_resource type="res://assets/image/stone.png" path=" id="1_xqhl2"]"$3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xqhl2"]
+radius = 100.0
+
+[node name="Mineral" type="Area2D" unique_id=1726764157 groups=["grabbable", "mineral"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_rreug")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2041397482]
+texture = ExtResource("1_xqhl2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2128010964]
+shape = SubResource("CircleShape2D_xqhl2")

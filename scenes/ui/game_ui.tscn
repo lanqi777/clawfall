@@ -1,0 +1,81 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/game_ui.gd" id="1_gwk6t"]
+
+[node name="GameUI" type="CanvasLayer" unique_id=175630310]
+script = ExtResource("1_gwk6t")
+
+[node name="Control" type="Control" parent="." unique_id=698113702]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1511463658]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1176807938]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TimeLabel" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=1660049289]
+layout_mode = 2
+text = "时间: 60s |"
+
+[node name="HPLabel" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=1873620993]
+layout_mode = 2
+text = " ❤️❤️❤️ |"
+
+[node name="WaveLabel" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = " 第1波 |"
+
+[node name="ScoreLabel" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=1284632356]
+layout_mode = 2
+text = " 💰0"
+
+[node name="ComboLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -80.0
+offset_right = 250.0
+offset_bottom = -50.0
+theme_override_colors/font_color = Color(1, 0.85, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "🔥 3连击 x1.5"
+visible = false
+
+[node name="PowerUpLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 35.0
+horizontal_alignment = 2
+theme_override_colors/font_color = Color(0.3, 1, 0.5, 1)
+theme_override_font_sizes/font_size = 18
+text = "🛡️5s ⚡5s"
+visible = false
+
+[node name="GameTimer" type="Timer" parent="." unique_id=1375399786]
+wait_time = 60.0
+autostart = true

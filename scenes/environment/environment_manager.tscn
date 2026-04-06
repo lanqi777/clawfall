@@ -1,0 +1,32 @@
+﻿[gd_scene load_steps=3 format=3]
+
+[ext_resource type="res://scenes/environment/environment_manager.gd" path=" id="1_36thj"]"$3
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fixe3"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(576, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 5.0
+gravity = Vector3(0, 130, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+
+[node name="EnvironmentManager" type="Node"]
+script = ExtResource("1_36thj")
+
+[node name="AcidRainParticles" type="GPUParticles2D" parent="."]
+position = Vector2(576, 0)
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_fixe3")
+lifetime = 5.0
+preprocess = 2.0
+speed_scale = 1.5
+visibility_rect = Rect2(-576, 0, 1152, 648)
+
+[node name="AcidRainTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="MineralValueTimer" type="Timer" parent="."]
+wait_time = 5.0

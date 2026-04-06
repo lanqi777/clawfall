@@ -1,0 +1,14 @@
+﻿[gd_scene format=3]
+
+[ext_resource type="res://assets/image/Enemy.png" path=" id="1_ja0ge"]"$3
+[ext_resource type="res://scenes/objects/enemy.gd" path=" id="1_lp353"]"$3
+
+[node name="Enemy" type="Node2D" unique_id=1094202428]
+script = ExtResource("1_lp353")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2139279305]
+texture = ExtResource("1_ja0ge")
+
+[node name="Timer" type="Timer" parent="." unique_id=660650783]
+wait_time = 2.0
+autostart = true
